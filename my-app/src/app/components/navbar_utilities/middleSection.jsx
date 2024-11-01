@@ -5,24 +5,44 @@ export default function MiddleSection() {
   return (
     <>
       <Link href="/">
-        <div className="text-white flex m-6">
-          Home
-        </div>
+        <button className="flex m-6 border rounded-lg">
+          <div className="text-white p-1">
+            Home
+          </div>
+          <div className="p-1">
+            &#127838;
+          </div>
+        </button>
       </Link>
       <Link href="/about">
-        <div className="text-white flex m-6">
-          About Us
-        </div>
+        <button className="flex m-6 border rounded-lg">
+          <div className="text-white p-1">
+            About Us
+          </div>
+          <div className="p-1">
+            &#129388;
+          </div>
+        </button>
       </Link>
       <Link href="/docs">
-        <div className="text-white flex m-6">
-          How It Works
-        </div>
+        <button className="flex m-6 border rounded-lg">
+          <div className="text-white p-1">
+            How It Works
+          </div>
+          <div className="p-1">
+            &#127813;
+          </div>
+        </button>
       </Link>
       <Link href="/gettingStarted">
-        <div className="text-white flex m-6">
-          Get Started
-        </div>
+        <button className="flex m-6 border rounded-lg">
+          <div className="text-white p-1">
+            Get Started
+          </div>
+          <div className="p-1">
+            &#129363;
+          </div>
+        </button>
       </Link>
     </>
   );
