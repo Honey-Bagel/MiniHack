@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState, createRef } from 'react';
 import axios from 'axios';
 
 export default function Home() {
 
 	const [ingredients, setIngredients] = useState('');
     const [recipes, setRecipes] = useState([]);
+	const [file, setFile] = useState(null);
 
 	const handleSearch = async () => {
         try {
@@ -20,6 +21,32 @@ export default function Home() {
         }
     };
 
+	const handleFileChange = (e) => {
+		setFile(e.target.files[0]);
+	}
+
+const handleSubmit = async (event) => {
+	event.preventDefault();
+	const formData = new FormData();
+
+	formData.append('file', file);
+
+	try {
+
+		const response = await axios.post('http://localhost:4000/api/recipes/image', formData, {
+			headers: {
+				'Content-Type': 'multipart/form-data',
+			},
+		});
+		setRecipes(response.data);
+		console.log('File uploaded successfully:', response.data);
+
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+
   return (
     <>
       <div>
@@ -31,6 +58,10 @@ export default function Home() {
                 placeholder="Enter ingredients, separated by commas"
             />
             <button onClick={handleSearch}>Search Recipes</button>
+			<form onSubmit={handleSubmit}>
+            	<input type="file" onChange={handleFileChange} />
+            	<button type="submit">Upload File</button>
+        	</form>
 
             <div>
                 {recipes}
