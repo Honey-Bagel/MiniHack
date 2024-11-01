@@ -31,6 +31,7 @@ const getRecipeText = async (req, res) => {
 		Recipe: = {'recipeName': string}
 		Prep Time: = {'prepTime': time}
 		Cook Time: = {'cookTime': time}
+		Serving Size = {'servingSize': int}
 		Ingredients: = {'ingredients': string}
 		Instructions: = {'instructions': string}`
 
@@ -80,6 +81,7 @@ const getRecipeImg = async (req, res) => {
 		Recipe: = {'recipeName': string}
 		Prep Time: = {'prepTime': time}
 		Cook Time: = {'cookTime': time}
+		Serving Size = {'servingSize': int}
 		Ingredients: = {'ingredients': string}
 		Instructions: = {'instructions': string}`
 
