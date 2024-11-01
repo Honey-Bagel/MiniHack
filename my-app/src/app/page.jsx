@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <div className="relative flex flex-col pt-20">
-        <div className="mt-40 ml-32">
+        <div className="mt-10 ml-32">
           <div className="flex text-5xl font-bold text-black mb-4">
             <div className="flex">
               "Got <span className="pl-2 pr-2 text-yellow-500">Food</span> in the Fridge, No Ideas?
@@ -16,7 +16,7 @@ export default function Home() {
               Let's Make Magic with What's in Your Fridge!"
             </div>
           </div>
-          <div>
+          <div className="flex">
             <Link href="/gettingStarted">
               <button className="flex m-6 border rounded-lg bg-yellow-500">
                 <div className="text-black font-semibold p-1">
@@ -25,6 +25,14 @@ export default function Home() {
               </button>
             </Link>
           </div>
+        </div>
+        <div className="flex justify-end">
+          <Image
+            src="/pasta.png"
+            width={800}
+            height={0}
+            alt="pasta"
+          />
         </div>
       </div>
     </>
