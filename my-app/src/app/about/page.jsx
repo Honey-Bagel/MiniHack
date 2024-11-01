@@ -1,10 +1,8 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function AboutUs() {
   return (
     <>
       <div className="absolute bottom-0">
-        hi
+        ABOUT US
       </div>
     </>
   );
