@@ -7,8 +7,7 @@ export default function GettingStarted() {
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [file, setFile] = useState(null);
-	const fileUploadRef = useRef();
-
+  const fileUploadRef = useRef();
 
   const handleTextSubmit = async (event) => {
 	try {
@@ -22,13 +21,26 @@ export default function GettingStarted() {
 	}
   }
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
 		setFile(event.target.files[0]);
-		handleImageSubmit(event);
+		const formData = new FormData();
+
+		formData.append('file', event.target.files[0]);
+
+		try {
+			const response = await axios.post('http://localhost:4000/api/recipes/image', formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			});
+			setRecipe(JSON.parse(response.data));
+			console.log('File uploaded successfully:', response.data);
+		} catch (error) {
+			console.error(error);
+		}
   }
 
   const handleImageSubmit = async (event) => {
-	event.preventDefault();
 	const formData = new FormData();
 
 	formData.append('file', file);
@@ -125,7 +137,7 @@ export default function GettingStarted() {
 				<div>
 					{recipe.instructions.split('\n').map((i) => {
 						return (
-							<div className='pb-2' key ={i}>
+							<div className='pb-2' key={i}>
 								{i}
 								<br/>
 							</div>

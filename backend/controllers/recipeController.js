@@ -25,15 +25,15 @@ const getRecipeText = async (req, res) => {
 		});
 		
 		// Construct prompt, including user ingredients and JSON Schema
-		let prompt = "Generate a recipe using these ingredients found in users house (Only include ingredients that I have listed): ";
+		let prompt = "Generate a recipe using these ingredients found in users house, make sure the instructions are numbered (Only include ingredients that I have listed): ";
 		prompt += ingredients.join(", ");
 		prompt += `\n Return the recipe using this JSON schema:
-		{'recipeName': string}
-		{'prepTime': time}
-		{'cookTime': time}
-		{'servingSize': int}
-		{'ingredients': string}
-		{'instructions': string}`
+		{"recipeName": string}
+		{"prepTime": time}
+		{"cookTime": time}
+		{"servingSize": int}
+		{"ingredients": string}
+		{"instructions": string}`
 
 		// Call model to generate content based on prompt and generationConfig
         const result = await model.generateContent([prompt], generationConfig);
@@ -79,13 +79,13 @@ const getRecipeImg = async (req, res) => {
 		});
 		
 		// Construct prompt for recipe generation
-		const prompt = `Take note of all the ingredients in this image and then create a recipe using those ingredients and return the result as this JSON schema:
-		{'recipeName': string}
-		{'prepTime': time}
-		{'cookTime': time}
-		{'servingSize': int}
-		{'ingredients': string}
-		{'instructions': string}`
+		const prompt = `Take note of all the ingredients in this image and then create a recipe using those ingredients and return the result as this JSON schema, make sure the instructions are numbered:
+		{"recipeName": string}
+		{"prepTime": time}
+		{"cookTime": time}
+		{"servingSize": int}
+		{"ingredients": string}
+		{"instructions": string}`
 
 		// Call the model to generate content based on prompt
 		const result = await model.generateContent([prompt, data]);
@@ -103,7 +103,9 @@ const getRecipeImg = async (req, res) => {
 
 // Helper function to format a model's result text into a useable JSON object
 function formatResultTxt(response) {
-	fixedTxt = response.slice(response.indexOf('{'), response.lastIndexOf('}') + 1); // Extract JSON object
+	console.log(response);
+	let fixedTxt = response.slice(response.indexOf('{'), response.lastIndexOf('}') + 1); // Extract JSON object
+	console.log(fixedTxt);
 	return JSON.parse(fixedTxt); // Parse and return as JSON object
 }
 
