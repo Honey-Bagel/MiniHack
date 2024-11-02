@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function GettingStarted() {
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [file, setFile] = useState(null);
+  //const [file, setFile] = useState(null);
 
 
   const handleTextSubmit = async (event) => {
@@ -89,28 +89,28 @@ export default function GettingStarted() {
 			  <h4 className="font-bold">Serves: {recipe.servingSize}</h4>
 			  <br/>
 			  <h3 className="font-bold">Ingredients:</h3>
-			  <span>
+			  <div>
 				{recipe.ingredients.split('\n').map((i) => {
 					return (
-						<div>
+						<div key={i}>
 							{i}
 							<br/>
 						</div>
 					)
 				})} 
-				</span>
+				</div>
 				<br/>
 				<h3 className="font-bold">Instructions:</h3>
-				<span>
+				<div>
 					{recipe.instructions.split('\n').map((i) => {
 						return (
-							<div className='pb-2'>
+							<div className='pb-2' key ={i}>
 								{i}
 								<br/>
 							</div>
 						)
 					})}
-				</span>
+				</div>
             </div>
 			}
           </div>
