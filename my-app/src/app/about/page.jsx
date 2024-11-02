@@ -6,7 +6,7 @@ export default function AboutUs() {
     <div className="relative bg-section h-screen">
       {/* Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center opacity-50"
         style={{ backgroundImage: "url('/background.jpg')" }}
       />
 
