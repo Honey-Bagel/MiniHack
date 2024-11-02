@@ -1,12 +1,13 @@
 'use client';
 import TextareaAutosize from 'react-textarea-autosize';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 
 export default function GettingStarted() {
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState('');
-  //const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null);
+	const fileUploadRef = useRef();
 
 
   const handleTextSubmit = async (event) => {
@@ -22,12 +23,13 @@ export default function GettingStarted() {
   }
 
   const handleFileChange = (event) => {
-	setFile(event.target.files[0]);
+		setFile(event.target.files[0]);
+		handleImageSubmit(event);
   }
 
   const handleImageSubmit = async (event) => {
 	event.preventDefault();
-	const formData = newFormData();
+	const formData = new FormData();
 
 	formData.append('file', file);
 
@@ -69,12 +71,31 @@ export default function GettingStarted() {
                 className="border rounded-lg w-full p-2"
               />
             </div>
-            <div>
-              <button onClick={handleTextSubmit} className="flex border rounded-lg bg-yellow-500 mt-1">
-                <div className="text-black font-semibold p-1 px-6">
-                  Generate!
-                </div>
-              </button>
+            <div className='flex'>
+							<div className='flex mr-6'>
+								<button onClick={handleTextSubmit} className="flex border rounded-lg bg-yellow-500 mt-1 hover:opacity-80 active:bg-yellow-500/50">
+									<div className="text-black font-semibold p-1 px-6">
+										Generate!
+									</div>
+								</button>
+							</div>
+							<div className='flex'>
+								<button 
+									className="border rounded-lg bg-yellow-500 mt-1 hover:opacity-80 active:bg-yellow-500/50"
+									onClick={() => fileUploadRef.current.click()}
+								>
+									<div className="text-black font-semibold p-1 px-6">
+										Input File
+									</div>
+								</button>
+								<input
+									type='file' 
+									ref={fileUploadRef}
+									onChange={handleFileChange}
+									accept='image/png, image/jpeg'
+									hidden
+								/>
+            </div>
             </div>
           </div>
 		  
