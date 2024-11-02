@@ -7,7 +7,7 @@ export default function HowItWorks() {
 			<div className='opacity-50 z-0 absolute'>
 				<Image
 				src="/background copy.jpg"
-				width={1450}
+				width={2000}
 				height={100}
 				alt="Picture of the author"
 				/>
