@@ -7,7 +7,7 @@ export default function Home() {
       <div className="opacity-30 z-0 absolute">
         <Image
           src="/background.jpg"
-          width={1500}
+          width={200}
           height={100}
           // style={{ "width" : "100%", "height" : "100%" }}
           alt="background" 
