@@ -96,7 +96,7 @@ const getRecipeImg = async (req, res) => {
 		// Send response to client
 		res.json(JSON.stringify(resp));
 	} catch (e) {
-		console.error(e); // Log errors 
+		console.error('recipe fail:', e); // Log errors 
 		res.status(500).json({ error: 'Failed to fetch recipes' }); // Send error response
 	}
 }

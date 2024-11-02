@@ -2,6 +2,7 @@
 import TextareaAutosize from 'react-textarea-autosize';
 import { useState, useRef } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function GettingStarted() {
   const [recipe, setRecipe] = useState('');
@@ -61,7 +62,16 @@ export default function GettingStarted() {
 
   return (
     <>
-      <div className="pt-20">
+			<div className="opacity-30 z-0 absolute">
+        <Image
+          src="/background.jpg"
+          width={2000}
+          height={100}
+          // style={{ "width" : "100%", "height" : "100%" }}
+          alt="background" 
+        /> 
+      </div>
+      <div className="pt-20 relative z-2">
         <div className="flex flex-col mt-10 ml-32">
           <div>
             <div className="flex text-5xl font-bold text-black mb-4">
@@ -76,10 +86,10 @@ export default function GettingStarted() {
               <TextareaAutosize
                 minRows={3}
                 maxRows={5}
-				type="text"
-				value={ingredients}
-				onChange={(e) => setIngredients(e.target.value)}
-                placeholder="Enter ingredients here..."
+								type="text"
+								value={ingredients}
+								onChange={(e) => setIngredients(e.target.value)}
+                placeholder="Enter ingredients here...(inlclude commas between each ingredient)"
                 className="border rounded-lg w-full p-2"
               />
             </div>
