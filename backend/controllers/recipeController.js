@@ -27,18 +27,21 @@ const getRecipeText = async (req, res) => {
 		// Construct prompt, including user ingredients and JSON Schema
 		let prompt = "Generate a recipe using these ingredients found in users house (Only include ingredients that I have listed): ";
 		prompt += ingredients.join(", ");
-		prompt += `\n Return the recipe using this JSON schema: 
-		Recipe: = {'recipeName': string}
-		Prep Time: = {'prepTime': time}
-		Cook Time: = {'cookTime': time}
-		Ingredients: = {'ingredients': string}
-		Instructions: = {'instructions': string}`
+		prompt += `\n Return the recipe using this JSON schema:
+		{'recipeName': string}
+		{'prepTime': time}
+		{'cookTime': time}
+		{'servingSize': int}
+		{'ingredients': string}
+		{'instructions': string}`
 
 		// Call model to generate content based on prompt and generationConfig
         const result = await model.generateContent([prompt], generationConfig);
 
 		// Format the result text into a JSON Object
 		const resp = formatResultTxt(result.response.text());
+
+		console.log(resp);
 
         // Send response to client
         res.json(JSON.stringify(resp));
@@ -77,11 +80,12 @@ const getRecipeImg = async (req, res) => {
 		
 		// Construct prompt for recipe generation
 		const prompt = `Take note of all the ingredients in this image and then create a recipe using those ingredients and return the result as this JSON schema:
-		Recipe: = {'recipeName': string}
-		Prep Time: = {'prepTime': time}
-		Cook Time: = {'cookTime': time}
-		Ingredients: = {'ingredients': string}
-		Instructions: = {'instructions': string}`
+		{'recipeName': string}
+		{'prepTime': time}
+		{'cookTime': time}
+		{'servingSize': int}
+		{'ingredients': string}
+		{'instructions': string}`
 
 		// Call the model to generate content based on prompt
 		const result = await model.generateContent([prompt, data]);
