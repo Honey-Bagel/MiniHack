@@ -5,7 +5,7 @@ import RightSection from "./navbar_utilities/rightSection";
 export default function Navbar() {
   return (
     <>
-      <header className="flex fixed justify-between top-0 inset-x-0 bg-black h-20 z-20">
+      <header className="flex fixed justify-between top-0 inset-x-0 bg-white/70 h-20 z-20">
         <LeftSection />
         <MiddleSection />
         <RightSection />
