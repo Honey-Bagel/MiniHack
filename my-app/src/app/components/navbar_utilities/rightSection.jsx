@@ -4,8 +4,8 @@ export default function RightSection() {
   return (
     <>
       <Link href="/recipe">
-        <button className="flex m-6 border rounded-lg">
-          <div className="text-white p-1">
+        <button className="flex m-6 border border-black rounded-lg bg-yellow-400 hover:opacity-80 active:bg-yellow-400/50">
+          <div className="text-black font-bold p-1">
             Your New Recipe!
           </div>
           <div className="p-1">

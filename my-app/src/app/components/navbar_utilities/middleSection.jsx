@@ -5,8 +5,8 @@ export default function MiddleSection() {
   return (
     <>
       <Link href="/">
-        <button className="flex m-6 border rounded-lg">
-          <div className="text-white p-1">
+        <button className="flex m-6 border border-black rounded-lg bg-yellow-400 hover:opacity-80 active:bg-yellow-400/50">
+          <div className="text-black font-bold p-1">
             Home
           </div>
           <div className="p-1">
@@ -15,9 +15,9 @@ export default function MiddleSection() {
         </button>
       </Link>
       <Link href="/about">
-        <button className="flex m-6 border rounded-lg">
-          <div className="text-white p-1">
-            About Us
+        <button className="flex m-6 border border-black rounded-lg bg-yellow-400 hover:opacity-80 active:bg-yellow-400/50">
+          <div className="text-black font-bold p-1">
+            Meet The Team
           </div>
           <div className="p-1">
             &#129388;
@@ -25,8 +25,8 @@ export default function MiddleSection() {
         </button>
       </Link>
       <Link href="/docs">
-        <button className="flex m-6 border rounded-lg">
-          <div className="text-white p-1">
+        <button className="flex m-6 border border-black rounded-lg bg-yellow-400 hover:opacity-80 active:bg-yellow-400/50">
+          <div className="text-black font-bold p-1">
             How It Works
           </div>
           <div className="p-1">
@@ -35,8 +35,8 @@ export default function MiddleSection() {
         </button>
       </Link>
       <Link href="/gettingStarted">
-        <button className="flex m-6 border rounded-lg">
-          <div className="text-white p-1">
+        <button className="flex m-6 border border-black rounded-lg bg-yellow-400 hover:opacity-80 active:bg-yellow-400/50">
+          <div className="text-black font-bold p-1">
             Get Started
           </div>
           <div className="p-1">

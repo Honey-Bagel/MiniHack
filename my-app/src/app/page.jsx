@@ -4,7 +4,16 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="relative flex flex-col pt-20">
+      <div className="opacity-30 z-0 absolute">
+        <Image
+          src="/background.jpg"
+          width={1500}
+          height={100}
+          // style={{ "width" : "100%", "height" : "100%" }}
+          alt="background" 
+        /> 
+      </div>
+      <div className="flex flex-col pt-20 relative z-1">
         <div className="mt-10 ml-32">
           <div className="flex text-5xl font-bold text-black mb-4">
             <div className="flex">
@@ -18,7 +27,7 @@ export default function Home() {
           </div>
           <div className="flex">
             <Link href="/gettingStarted">
-              <button className="flex m-6 border rounded-lg bg-yellow-500">
+              <button className="flex m-6 border border-black rounded-lg bg-yellow-500 hover:opacity-80 active:bg-yellow-400/50">
                 <div className="text-black font-semibold p-1">
                   Get Started
                 </div>
